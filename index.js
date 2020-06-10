@@ -85,11 +85,11 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
-/*SOON
 function mortgageCalculator(P, I, N) {
-    return a * b;
+    let monthlyRate = principal * (((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate), periods)))) / ((Math.pow((1 + monthlyInterestRate), periods)) - 1));
+    return monthlyRate;
   }
-  mortgageCalculator(200000, 0.05, 30); */
+  console.log(mortgageCalculator(200000, 0.05, 30));
 
 
 // 🏡 Task 5: Conditionals
@@ -100,7 +100,16 @@ Then, add control flow within your function such that IF creditScore is above 74
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
 
-
+function mortgageCalculator (P, I, N, creditScore) {
+    let monthlyRate = principal * (((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate), periods)))) / ((Math.pow((1 + monthlyInterestRate), periods)) - 1));
+    if (creditScore >= 740) {
+        {return (monthlyRate * 0.95) .toFixed(2)};
+    } if (creditScore <= 660) {
+        {return (monthlyRate * 1.05) .toFixed(2)};
+    } if (creditScore >= 660 || 740) {
+        {return monthlyRate .toFixed(2)};
+  }
+  console.log(mortgageCalculator(200000, 0.05, 30) .toFixed(2));
 
 
 // 🏡 Task 6: Loops
@@ -119,8 +128,21 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+function variableInterestRate(principal, interestRate, years){
 
+    for (let interestRate = 0.02; interestRate < 0.061; interestRate + 0.005);
+    let monthlyInterestRate = interestRate/12;
+    let periods = years*12;
+    let n1 = Math.pow((1+ monthlyInterestRate), periods);
+    let numerator = principal *n1*monthlyInterestRate;
+    let denominator = n1-1;
+    let monthlyRate = numerator / denominator;
+    /*    let monthlyRate = Math.round(100*(P*(I*(Math.pow((1+I), N))))) / ((Math.pow((1+I), N)) - 1)/100;*/
 
+    {return name + ', with an interest rate of' + interestRate.toFixed(2)+ ' your monthly rate is ' + monthlyInterestRate.toFixed(2);
+    }
+}
+console.log(variableInterestRate(principal, interestRate, years).toFixed(2));
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
 
