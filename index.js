@@ -99,6 +99,9 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
+let P = principal;
+let I= monthlyInterestRate;
+const N = name;
 
 function mortgageCalculator (P, I, N, creditScore) {
     let monthlyRate = principal * (((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate), periods)))) / ((Math.pow((1 + monthlyInterestRate), periods)) - 1));
@@ -108,8 +111,9 @@ function mortgageCalculator (P, I, N, creditScore) {
         {return (monthlyRate * 1.05) .toFixed(2)};
     } if (creditScore >= 660 || 740) {
         {return monthlyRate .toFixed(2)};
-  }
-  console.log(mortgageCalculator(200000, 0.05, 30) .toFixed(2));
+    }
+}
+  console.log(mortgageCalculator(P, I, N, creditScore) .toFixed(2));
 
 
 // 🏡 Task 6: Loops
